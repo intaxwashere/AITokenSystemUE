@@ -1,5 +1,4 @@
-﻿// Copyright INTAX Interactive, all rights reserved.
-
+﻿
 #include "TokenSubscriberComponent.h"
 #include "AITokenBase.h"
 

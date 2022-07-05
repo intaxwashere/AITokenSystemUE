@@ -1,5 +1,4 @@
-﻿// Made by Intax, 2022
-
+﻿
 #include "AITokenCategory.h"
 #include "AITokenBase.h"
 #include "TokenSubscriberComponent.h"

@@ -1,5 +1,4 @@
-﻿// Made by Intax, 2022
-
+﻿
 #pragma once
 
 #include "CoreMinimal.h"
