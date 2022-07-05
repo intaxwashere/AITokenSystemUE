@@ -17,7 +17,7 @@ Not an NFT thing obviously. Tokens (also sometimes called as "tickets" around th
 - Create a `UTokenSubscriberComponent` in your "subscriber" (your ai etc)
 - Create a `UTokenSourceComponent` in your "source", populate your token categories from details panel in BP. (your player etc)
 - Access to your "source" and register your "subscriber" to it with desired token category.
-- Port this system to your favorite AI tool (be it Behavior Trees, or your custom State Machine implementation or literally just to your game code in Blueprints). Check if your "subscriber" has the given type of token and if it returns true, process your behavior. 
+- Port this system to *your favorite AI tool* (be it Behavior Trees, or your custom State Machine implementation or literally just to your game code in Blueprints). Check if your "subscriber" has the given type of token and if it returns true, process your behavior. 
 - For BT's using a service to obtaining tokens, and using a decorator to checking if subscriber has the desired token is recommended. For other tools, it's going to be up to you since FSM's and your game code will have more options.
 
 ### Details:
@@ -44,3 +44,9 @@ Subscriber Components *register* theirselves to `UTokenSourceComponent`'s. They 
 ### Token Source Components
 
 Token Source Components hold a TMap of Token Subscriber Components and Token Categories and they evaluate them on tick. Token Subscribers registers theirselves to this component with their desired Token Category type. 
+
+## TODOs:
+
+- **Token Stealing**: An implementation that allows other subscribers to steal tokens from their current obtainers.
+- **Conditional Token Releasing**: A way to let tokens release theirselves after a specific condition, say it's after a time or a specific event happened in gameplay. But this is also risky because this feature might make the developers' implementations more complex than it has to be, since token obtaining/releasing happens at *your favorite AI tool*. Behavior Trees can't really deal with the situation where tokens are able to release theirselves because of their *"prioritization"* nature. So it might be better to just create an example "manager" or an "extended version of UTokenSubscriberComponent" where they implement conditional releases. So developers can choose to implement it or not.
+- **Event-driven tokens**: As you might already noticed (if you already read the source code along with readme) 3rd example I gave above about real world examples (the Alien Isolation / Slender Man one) require event-driven token obtaining and releasing features. Currently, `UTokenSourceComponent`'s loop their `UTokenCategory`'s and evaluate the available tokens *on tick*. If you have a similar logic to what explained in that example, you need to evaluate a simple bool on tick forever until you reach that specific checkpoint. And this both triggers my OCD and looks ugly.
