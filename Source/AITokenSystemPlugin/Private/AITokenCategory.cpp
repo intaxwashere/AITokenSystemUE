@@ -22,7 +22,8 @@ bool UAITokenCategory::EvaluateTokens(const TArray<UTokenSubscriberComponent*>& 
 		if (IsValid(Token) && !Token->HasCooldown() && !Token->IsObtained())
 		{
 			// filter subscribers - only evaluate the subscribers that does not already obtained this type of a token.
-			// @todo i think this might be better, somehow...
+			// @todo i think this might be better, somehow... currently I have doubts about quality of this implementation
+			// but I also have no idea how can it be better than it is. 
 			const bool bSingleInstancePerSubscriber = Token->IsSingleInstancePerSubscriber();
 			TArray<UTokenSubscriberComponent*> FilteredSubscribers;
 			if (bSingleInstancePerSubscriber)
@@ -64,8 +65,7 @@ void UAITokenCategory::InitializeTokenCategory()
 		return;
 	}
 
-	UE_VLOG(this, LogTemp, Error, TEXT("Could not initialize Token Category (%s), see %s for more details!"),
-	        *FriendlyName, *FString(__FUNCTION__));
+	UE_VLOG(this, LogTemp, Error, TEXT("Could not initialize Token Category (%s), see %hs for more details!"), *FriendlyName, __FUNCTION__);
 	bInitialized = false;
 }
 
