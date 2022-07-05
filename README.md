@@ -4,6 +4,11 @@
 
 Not an NFT thing obviously. Tokens (also sometimes called as "tickets" around the industry) are concepts that are used to "allow" specific behaviors in AI agents in games. Each AI (which are "Token Subscriber Component" in our implementation) tries to obtain a specific token type from target (which are "Token Source Component" in our implementation) and can not proceed to next behavior without obtaining it. See [this DOOM GDC](https://youtu.be/2KQNpQD8Ayo) and [this Spider Man GDC](https://youtu.be/LxWq65CZBU8). It's very easy to implement to any tool or system and can be used literally anywhere.
 
+**Real world example:**
+- Let's say you have three snipers aiming towards your player, and if all three of them shoot at the same time, your player will die. This is the situation where you use tokens to *decide* which sniper will be able to actually accurately shot player and others will miss. So your player won't die instantly while it's on it's maximum health value.
+- Your game designer is an idiot and created a system where game spawns 50 same type of ranged enemies. If all of them attacks towards single player, your game will both be bottlenecked by the projectiles they spawned and your player won't be able to dodge them and get stressed out. This situation is where you *decide* which enemies will be able to shoot towards players. And meanwhile you will do other things with your AIs that are not managed to obtain tokens so it's still going to look natural. See DOOM's GDC that I posted above to see their real-world example.
+- You're doing a horror game like *Slender Man* and you literally only have one single AI in whole gameplay. But you don't want your horror game AI to be very difficuly and creepy at early game, so you add a "Requires Token" condition for some behaviors in Behavior Tree and provide those tokens after you reach a certain checkpoint in gameplay. So your AI will evolve over the time with it's *unlocked* behaviors. Alien Isolation also did something similar to this, but they did not use tokens. 
+
 ## How to use?
 
 ### TL;DR:
