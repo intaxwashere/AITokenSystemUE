@@ -31,7 +31,7 @@ Basically, this plugin introduces four classes:
 
 ### Tokens
 
-Tokens live inside `UTokenCategory`'s and `UTokenSubscriberComponent`'s. They determine how and which subscriber can obtain them. They select best/desired subscriber with `TryGetToken()` function. They get "used" after obtained and "released" after their owner (subscriber component) releases them.
+Tokens live inside `UTokenCategory`'s and `UTokenSubscriberComponent`'s. They determine how and which subscriber can obtain them. They select best/desired subscriber with `SelectBestSubscriber()` function. They get "used" after obtained and "released" after their owner (subscriber component) releases them.
 
 ### Token Categories
 
