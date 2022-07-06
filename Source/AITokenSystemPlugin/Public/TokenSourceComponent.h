@@ -36,7 +36,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool AddNewSubscriber(UTokenSubscriberComponent* Subscriber, TSubclassOf<UAITokenCategory> Category);
 	UFUNCTION(BlueprintCallable)
-	bool RemoveSubscriber(UTokenSubscriberComponent* Subscriber);
+	bool RemoveSubscriber(UTokenSubscriberComponent* Subscriber, TSubclassOf<UAITokenCategory> FromCategory);
+	UFUNCTION(BlueprintCallable)
+	bool RemoveSubscriberFromAllCategories(UTokenSubscriberComponent* Subscriber);
 
 protected:
 	virtual void InitializeComponent() override;

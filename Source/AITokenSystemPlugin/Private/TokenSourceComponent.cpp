@@ -59,7 +59,25 @@ bool UTokenSourceComponent::AddNewSubscriber(UTokenSubscriberComponent* Subscrib
 	return false;
 }
 
-bool UTokenSourceComponent::RemoveSubscriber(UTokenSubscriberComponent* Subscriber)
+bool UTokenSourceComponent::RemoveSubscriber(UTokenSubscriberComponent* Subscriber, TSubclassOf<UAITokenCategory> FromCategory)
+{
+	int32 RemovedCount = 0;
+	if (IsValid(Subscriber) && FromCategory)
+	{
+		for (TTuple<TSubclassOf<UAITokenCategory>, FTokenSubscriberArrayWrapper>& Elem : SubscribersMap)
+		{
+			const TSubclassOf<UAITokenCategory> CurrentCategory = Elem.Key;
+			if (CurrentCategory == FromCategory)
+			{
+				RemovedCount += Elem.Value.Get().RemoveSwap(Subscriber);
+			}
+		}
+	}
+
+	return RemovedCount > 0;
+}
+
+bool UTokenSourceComponent::RemoveSubscriberFromAllCategories(UTokenSubscriberComponent* Subscriber)
 {
 	int32 RemovedCount = 0;
 	if (IsValid(Subscriber))
