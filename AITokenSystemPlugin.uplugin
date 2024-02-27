@@ -3,7 +3,7 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "AITokenSystemPlugin",
-	"Description": "An AI token system inspired from DOOM's "Push Forward Combat" GDC.",
+	"Description": "An AI token system inspired from DOOM's 'Push Forward Combat' GDC.",
 	"Category": "Other",
 	"CreatedBy": "intax",
 	"CreatedByURL": "",
